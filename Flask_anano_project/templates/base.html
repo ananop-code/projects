@@ -28,14 +28,25 @@
         </li>
       </ul>
       <form class="d-flex">
+        {% if current_user.is_authenticated %}
+        <a href="/logout" class="btn btn-primary" type="submit">Logout</a>
+        {% else %}
         <a href="/login" class="btn btn-outline-success" type="submit">Login</a>
         <a href="/register" class="btn btn-outline-success" type="submit">Register</a>
+        {% endif %}
       </form>
     </div>
   </div>
 </nav>
 
 <div class="container shadow-lg p-3 mb-5 rounded">
+    {% with messages = get_flashed_messages() %}
+        {% for msg in messages %}
+        <div class="alert alert-success">
+            {{ msg }}
+        </div>
+        {% endfor %}
+    {% endwith %}
     {% block content %}
     {% endblock %}
 </div>

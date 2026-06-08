@@ -7,11 +7,6 @@ from flask_wtf.file import FileField, FileRequired, FileSize, FileAllowed
 
 
 class RegisterForm(FlaskForm):
-    image = FileField(validators=[
-        FileRequired(message="upload the image"),
-        FileSize(1024 * 1024 * 3, message="image should be this size"),
-        FileAllowed(["png", "jpg", "jpeg"])
-    ])
     username = StringField("Enter Username", validators=[
         DataRequired()
     ])
@@ -21,16 +16,16 @@ class RegisterForm(FlaskForm):
     ])
     confirm_password = PasswordField("Confirm Password", validators=[
         DataRequired(),
-        equal_to("password", message="not same")
+        equal_to("password", message="პაროლები არ ემთხვევა")
     ])
-    mobile = IntegerField(validators=[
-        DataRequired()
-    ])
-    birthdate = DateField()
-    gender = RadioField(choices=["Male", "Female", "I'm a megatvin"])
-    country = SelectField(choices=["Choose Country", "Georgia", "USA", "Japan"])
 
     register = SubmitField("Register")
+
+class LoginForm(FlaskForm):
+    username = StringField()
+    password = PasswordField()
+
+    login = SubmitField("Log In")
 
 
 

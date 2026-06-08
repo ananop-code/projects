@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Add History Page</h1>
+<h1>Add Information Page</h1>
 
     <div class="row justify-content-center">
             {% for errors in form.errors.values() %}
@@ -20,7 +20,7 @@
                 {{ form.title(class="form-control", placeholder=form.title.label.text) }}
             </div>
             <div class="row mt-2">
-                {{ form.release_year(class="form-control", placeholder=form.release_year.label.text) }}
+                {{ form.year(class="form-control", placeholder=form.year.label.text) }}
             </div>
 
             <div class="row mt-2">

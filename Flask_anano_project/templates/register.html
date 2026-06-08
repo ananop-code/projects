@@ -14,9 +14,6 @@
             {% endfor %}
         <form method="POST" enctype="multipart/form-data" class="col-6 p-5">
             {{ form.hidden_tag() }}
-            <div class="row">
-                {{ form.image(class="form-control", accept=".png, .jpg, .jpeg") }}
-            </div>
             <div class="row mt-2">
                 {{ form.username(class="form-control", placeholder=form.username.label.text) }}
             </div>
@@ -25,18 +22,6 @@
             </div>
             <div class="row mt-2">
                 {{ form.confirm_password(class="form-control", placeholder=form.confirm_password.label.text) }}
-            </div>
-            <div class="row mt-2">
-                {{ form.mobile(class="form-control", placeholder=form.mobile.label.text) }}
-            </div>
-            <div class="row mt-2">
-                {{ form.birthdate(class="form-control") }}
-            </div>
-            <div class="row mt-2">
-                {{ form.gender(class="form-control") }}
-            </div>
-            <div class="row mt-2">
-                {{ form.country(class="form-control", placeholder=form.country.label.text) }}
             </div>
             <div class="row mt-2">
                 {{ form.register(class="btn btn-success", placeholder=form.register.label.text) }}
