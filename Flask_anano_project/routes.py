@@ -10,7 +10,7 @@ profiles = []
 
 @app.route("/")
 def home():
-    histories = History.query.filter(history.release_year < 2026).all()
+    histories = History.query.filter(history.year < 2026).all()
     return render_template("index.html",
                            histories=histories, role="admin")
 
@@ -63,12 +63,6 @@ def delete_history(history_id):
 @app.route("/login")
 def login():
     return render_template("login.html")
-
-
-@app.route("/profile/<int:profile_id>")
-def profile(profile_id):
-    profile = profiles[profile_id]
-    return render_template("profile.html", profile=profile)
 
 
 @app.route("/history/<int:history_id>")
