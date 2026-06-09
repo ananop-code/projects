@@ -1,6 +1,9 @@
-from ext import db
-from flask_login import UserMixin
+from ext import db, app
+from flask_login import UserMixin, LoginManager
 
+
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 
 class BaseModel:
